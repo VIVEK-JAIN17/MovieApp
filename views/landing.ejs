@@ -1,10 +1,21 @@
-<h1>Welcome to the movie App</h1>
-<h2>This is my first express app.</h2>
-<h3>This movie app uses an API to search and deliver results</h3>
-<h4>Your onestop destination to know all about yur favorite movies and television/series series</h4>
-<p>As you can guess, this is my very first experience on working with APIsas well !</p>
+<%- include('partials/header') -%>
 
-<form action="/results" method="GET">
-    <input type="text" name="search" id="search" placeholder="Enter your search here">
-    <input type="submit" value="submit">
-</form>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h1 class="mb-4">Search for a Movie / Series</h1>
+            <form class="" action="/results" method="GET">
+                <div class="form-row justify-content-center">
+                    <div class="input-group col-10">
+                        <div class="input-group-prepend">
+                            <input class="btn btn-danger" type="submit" value="SUBMIT">
+                        </div>
+                        <input class="form-control form-control-lg" type="text" name="search" id="search"
+                            placeholder="Enter your search here" required>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer') -%>

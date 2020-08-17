@@ -1,0 +1,13 @@
+<h1>This is the results page </h1>
+<h2>Here you will get the results of your search query</h2>
+<ul>
+    <% data.Search.forEach(function(movie){ %>
+    <li>
+        <a href="/details"><strong><%= movie.Title %></strong></a> - <%= movie.Year%> , <%= movie.Type %>
+    </li>
+    <% }); %>
+</ul>
+
+<form action="/" method="GET">
+    <input type="submit" value="Search More !">
+</form>

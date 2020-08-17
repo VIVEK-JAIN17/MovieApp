@@ -3,7 +3,8 @@
 <ul>
     <% data.Search.forEach(function(movie){ %>
     <li>
-        <a href="/details"><strong><%= movie.Title %></strong></a> - <%= movie.Year%> , <%= movie.Type %>
+        <a href="/results/<%= movie.imdbID %>"><strong><%= movie.Title %></strong></a> - <%= movie.Year%> ,
+        <%= movie.Type %>
     </li>
     <% }); %>
 </ul>

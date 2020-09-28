@@ -6,6 +6,7 @@ iurl = "http://omdbapi.com/?apikey=thewdb&plot=full&i=";
 
 // Configuring the app 
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + '/public'));
 
 // Landing Page
 app.get('/', function (req, res) {
@@ -35,5 +36,5 @@ app.get('/results/:id', function (req, res) {
 })
 
 app.listen(3000, function () {
-    console.log("The Movie App server is up and running!");
+    console.log("The Movie App server is up and running at localhost:3000");
 })

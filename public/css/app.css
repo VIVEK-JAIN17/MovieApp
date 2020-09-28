@@ -1,0 +1,49 @@
+/* all */
+body {
+  background: rgb(0, 20, 20);
+}
+
+/* landing */
+.search:focus {
+  outline: none;
+}
+.form-control:focus {
+  box-shadow: none;
+  border: none;
+}
+
+/* index */
+#poster {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+h4.title {
+  color: #fff;
+  text-transform: capitalize;
+}
+
+#index-link:hover {
+  text-decoration: none;
+}
+
+/* details page */
+li.detail-item {
+  padding: 5px 0;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+li.detail-item > span.topic {
+  font-weight: 700;
+}
+
+i.fa-imdb {
+  color: #ffc107;
+  background-color: black;
+  font-size: 1.8em;
+}
+i.fa-heart {
+  color: rgb(41, 182, 41);
+}

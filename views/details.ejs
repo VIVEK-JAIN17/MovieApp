@@ -5,48 +5,66 @@
         <h2 class="display-4"><%= movie.Runtime %></h2>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-4">
-            <img class="img-thumbnail" src="<%= movie.Poster %>" alt="<%= movie.Title%>">
+        <div class="col-md-6 col-lg-4 align-self-center text-center">
+            <% if(movie.Poster != 'N/A') { %>
+            <img class="img-thumbnail" src="<%= movie.Poster %>" alt="<%= movie.Title %>">
+            <% }else { %>
+            <img class="img-thumbnail" height="300px" src="http://via.placeholder.com/300x400" alt="<%= movie.Title %>">
+            <% } %>
         </div>
-        <div class="col-md-4">
-            <!-- <h2><%= movie.Title%> <small>(<%= movie.Type%>)</small></h2> -->
+        <div class="col-md-6">
             <ul class="list-unstyled">
-                <style>
-                    li {
-                        padding: 5px 0;
-                        font-weight: 700;
-                        font-size: 20px;
-                    }
-
-                    i.fa-imdb {
-                        color: #ffc107;
-                        background-color: black;
-                        font-size: 1.8em;
-                    }
-                    i.fa-heart{
-                        color: rgb(41, 182, 41);
-                    }
-                </style>
-                <li>Year <%= movie.Year%></li>
-                <li>Release Date <%= movie.Released%></li>
-                <li>Rating <span class="badge badge-info"><%= movie.Rated%></span></li>
-                <li><%= movie.Genre%></li>
-                <li><i class="fa fa-imdb"></i> <%= movie.imdbRating%> / 10</li>
+                <!-- <li class="detail-item">
+                    <span class="topic">Year</span> <%= movie.Year%>
+                </li> -->
+                <li class="detail-item">
+                    <span class="topic">Release Date</span> <%= movie.Released%>
+                </li>
+                <li class="detail-item">
+                    <span class="topic">Rating</span> <span class="badge badge-info"><%= movie.Rated%></span>
+                </li>
+                <li class="detail-item">
+                    <%= movie.Genre%>
+                </li>
+                <li class="detail-item">
+                    <span class="mr-3"> <i class="fa fa-imdb mr-2"></i> <%= movie.imdbRating%> / 10</span>
+                    <span> <i class="fa fa-heart mr-2"></i><%= movie.imdbVotes%></span>
+                </li>
                 <% if(movie.Metascore !== 'N/A') { %>
-                <li>Metascore <%= movie.Metascore %> %</li>
+                <li class="detail-item">
+                    <span class="topic">Metascore</span> <%= movie.Metascore %> &percnt;
+                </li>
                 <% } %>
-                <li><i class="fa fa-heart pr-3"></i><%= movie.imdbVotes%></li>
-                <% if(movie.Type === "series"){%>
-                <li>Seasons - <%= movie.totalSeasons%></li>
-                <%}%>
-                <li>Director(s) <div><i class="fa fa-user-circle-o pr-4"></i><%= movie.Director%></div></li>
-                <li>Cast <div><i class="fa fa-user-circle-o pr-4"></i><%= movie.Actors%></div></li>
-                <li>Writer(s) <div><i class="fa fa-user-circle-o pr-4"></i><%= movie.Writer%></div></li>
+                <% if(movie.Type === "series") { %>
+                <li class="detail-item">
+                    <span class="topic">Seasons</span> - <%= movie.totalSeasons%>
+                </li>
+                <% } %>
+                <li class="detail-item">
+                    <span class="topic">Director</span>
+                    <div>
+                        <i class="fa fa-user-circle-o pr-2"></i><%= movie.Director%>
+                    </div>
+                </li>
+                <li class="detail-item">
+                    <span class="topic">Cast</span>
+                    <div>
+                        <!-- <i class="fa fa-user-circle-o pr-2"></i> -->
+                        <small><%= movie.Actors%></small>
+                    </div>
+                </li>
+                <li class="detail-item">
+                    <span class="topic">Writer(s)</span>
+                    <div>
+                        <!-- <i class="fa fa-user-circle-o pr-2"></i> -->
+                        <small><%= movie.Writer%></small>
+                    </div>
+                </li>
             </ul>
-        </div>    
+        </div>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-sm-8 text-justify">
+    <div class="row justify-content-center mt-4">
+        <div class="col-lg-10 text-justify">
             <h4>Plot/ Synopsis</h4>
             <p class="lead"><%= movie.Plot%></p>
         </div>
